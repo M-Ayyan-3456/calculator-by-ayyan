@@ -11,6 +11,7 @@ arr.forEach((btn) => {
       if (str.includes("/0")) {
         str = "error";
         input.value = str;
+        str = "";
       } else if (
         str.includes("++") ||
         str.includes("%%") ||
