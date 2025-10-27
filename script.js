@@ -7,9 +7,24 @@ let str = "";
 let arr = Array.from(btns);
 arr.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    if (e.target.innerHTML == "=") {
-      str = eval(str);
-      input.value = str;
+    if (e.target.innerHTML === "=") {
+      if (str.includes("/0")) {
+        str = "error";
+        input.value = str;
+      } else if (
+        str.includes("++") ||
+        str.includes("%%") ||
+        str.includes("//") ||
+        str.includes("**") ||
+        str.includes("--")
+      ) {
+        str = "error";
+        input.value = str;
+      } else {
+        str = eval(str);
+        input.value = str;
+        str = "";
+      }
     } else if (e.target.innerHTML == "AC") {
       str = "";
       input.value = str;
@@ -18,7 +33,6 @@ arr.forEach((btn) => {
       input.value = str;
     } else {
       str = str + e.target.innerHTML;
-
       input.value = str;
     }
   });
