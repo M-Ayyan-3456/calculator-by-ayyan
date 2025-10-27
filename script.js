@@ -21,6 +21,7 @@ arr.forEach((btn) => {
       ) {
         str = "error";
         input.value = str;
+        str = "";
       } else {
         str = eval(str);
         input.value = str;
